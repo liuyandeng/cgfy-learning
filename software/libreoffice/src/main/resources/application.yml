@@ -1,0 +1,38 @@
+server:
+  port: 8088
+spring:
+  profiles:
+    active: win
+  jackson:
+    dateFormat: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+  freemarker:
+    suffix: .html
+
+---
+spring:
+  profiles: win
+jodconverter:
+  local:
+    enabled: true
+    office-home: D:\Program Files\LibreOffice
+    port-numbers: 8100,8101,8102
+    max-tasks-per-process: 100
+  store:
+    path: E:\doc_gen
+---
+spring:
+  profiles: linux
+
+jodconverter:
+  local:
+    enabled: true
+    office-home: /usr/lib64/libreoffice
+    port-numbers: 8100,8101,8102
+    max-tasks-per-process: 100
+  store:
+    path: /data/preview
